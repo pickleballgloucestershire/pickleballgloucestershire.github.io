@@ -1,2 +1,2 @@
 # pickleballgloucestershire.github.io
-The github hosted pickleball gloucestershure web site
+The github hosted pickleball gloucestershire web site
