@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Pickleball Gloucestershire - Your local pickleball community">
+    <meta name="description" content="Pickleball Gloucestershire - Your local pickleball community. Join us for regular play, tournaments, and coaching">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pickleball Gloucestershire</title>
 
@@ -26,6 +26,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left side links -->
+                <!-- (none for this landing page)-->
                 <!-- Right side social icons -->
                 <ul class="navbar-nav d-flex flex-row ms-auto">
                     <li class="nav-item">
@@ -53,8 +54,19 @@
         <main>
             {{content}}
         </main>
+        <!-- Sticky Footer Layout -->
         <div class="footer">
-            &copy; 2026 Pickleball Gloucestershire. All rights reserved.<span>Version:{{site.time|date:"%Y%m%d%T"}}}</span>
+            <footer class="bg-dark text-light py-3 mt-auto position-relative z-1">
+                <div class="container text-center">
+                    <p class="mb-1">&copy; 2026 Pickleball Gloucestershire. All rights reserved.</p>
+                    <p class="mb-0"><a href="policy.html" class="text-decoration-none text-info">Our Policies</a></p>
+                </div>
+                Version:{{site.time|date:"%Y%m%d%T"}}
+            </footer>
+            
+        </div>
+        <div class="version">
+            
         </div>
     </div>
 </body>
