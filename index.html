@@ -2,12 +2,208 @@
 layout: default
 ---
 
+<style>
+    /* Grid system layout for adjacent desktop views */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1000px; /* Reduced to bring the adjacent boxes closer together */
+        width: 90%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+
+    /* REDUCED SIZE: Max-width brought down to 480px for a cleaner, compact footprint */
+    .content-box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        margin: 0 auto;
+        max-width: 480px !important; /* Shrunk from original 650px width size */
+        width: 100% !important;
+        padding: 2.5rem 2rem !important; /* Tighter internal padding for compact sizing */
+    }
+
+    /* High-Impact Big Date Showcase Callout */
+    .date-showcase {
+        margin: 1.2rem 0 0.4rem 0;
+        text-align: center;
+    }
+
+        .date-showcase .main-date {
+            font-size: 2rem; /* Adjusted slightly to sit nicely inside the smaller card footprint */
+            font-weight: 900;
+            color: #d4fc34;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            display: block;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .date-showcase .venue-sub {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: 5px;
+        }
+
+    /* Minimalist Countdown Widget Card Layout */
+    .countdown-widget {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1rem;
+        margin: 1rem 0 0 0; /* Cleared base margin since button is removed */
+        text-align: center;
+    }
+
+    .countdown-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #ffffff;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.8rem;
+        opacity: 0.8;
+    }
+
+    .timer-slots {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .slot-block {
+        background: rgba(14, 36, 24, 0.6);
+        border: 1px solid rgba(212, 252, 52, 0.15);
+        border-radius: 12px;
+        padding: 8px 0;
+    }
+
+    .slot-number {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #ffffff;
+        display: block;
+        line-height: 1.1;
+    }
+
+    .slot-label {
+        font-size: 0.6rem;
+        color: #cbd5e1;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 2px;
+        display: block;
+    }
+
+    /* Premium Status Flag */
+    .status-corner-flag {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        background-color: #ff3333;
+        color: #ffffff;
+        padding: 0.3rem 0.9rem;
+        border-radius: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+    }
+</style>
 
 <div class="overlay">
-    <div class="content-box">
-        <span class="badge">Under Development</span>
-        <h1>Pickleball Gloucestershire</h1>
-        <p>The ultimate hub for the fastest growing sport in the county is currently under construction. We are building a home for local clubs, courts, tournaments, and players across Gloucestershire.</p>
-        <a href="mailto:glospickle@gmail.com" class="cta-button">Register For Updates</a>
+    <div class="grid-container">
+
+        <!-- CONTENT BOX 1: Your Exact Original Construction Layout -->
+        <div class="content-box">
+            <div>
+                <span class="badge">Under Development</span>
+                <h1>Pickleball Gloucestershire</h1>
+                <p>The ultimate hub for the fastest growing sport in the county is currently under construction. We are building a home for local clubs, courts, tournaments, and players across Gloucestershire.</p>
+            </div>
+            <a href="mailto:glospickle@gmail.com" class="cta-button">Register For Updates</a>
+        </div>
+
+        <!-- CONTENT BOX 2: Festival Box with Matching Badge Style -->
+        <div class="content-box">
+            <span class="status-corner-flag">Details to follow</span>
+
+            <div>
+                <!-- Restored to match your custom .badge class style layout exactly -->
+                <span class="badge">Festival Info</span>
+                <h1>Save The Date</h1>
+                <p>Join us for the premier county celebration filled with competitive tournament brackets, open social play courts, and pro coaching clinics.</p>
+
+                <!-- Massive Visual Date Callout Block -->
+                <div class="date-showcase">
+                    <span class="main-date">Sunday Nov 22nd</span>
+                    <span class="venue-sub">Oxstalls Tennis Centre</span>
+                </div>
+
+                <!-- Countdown Component Block -->
+                <div class="countdown-widget">
+                    <div class="countdown-heading">⏳ Time Remaining Until Launch</div>
+                    <div class="timer-slots">
+                        <div class="slot-block">
+                            <span class="slot-number" id="days">00</span>
+                            <span class="slot-label">Days</span>
+                        </div>
+                        <div class="slot-block">
+                            <span class="slot-number" id="hours">00</span>
+                            <span class="slot-label">Hrs</span>
+                        </div>
+                        <div class="slot-block">
+                            <span class="slot-number" id="minutes">00</span>
+                            <span class="slot-label">Mins</span>
+                        </div>
+                        <div class="slot-block">
+                            <span class="slot-number" id="seconds">00</span>
+                            <span class="slot-label">Secs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+<script>
+    // Hardcoded target date matching November 22nd
+    const targetDate = new Date("November 22, 2026 09:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference < 0) {
+            document.querySelector(".countdown-widget").innerHTML = "<div class='countdown-heading' style='color:#d4fc34; margin:0;'>🎉 The Festival is Live!</div>";
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
+

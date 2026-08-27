@@ -82,7 +82,7 @@ p {
     font-size: 1.15rem;
     margin-bottom: 2.5rem;
     line-height: 1.6;
-    /*color: #f1f5f9;*/
+    color: #f1f5f9;
 }
 
 /* Call to Action Button */
@@ -112,8 +112,29 @@ p {
     left: 0;
     bottom: 0;
     width: 100%;
-    /*background-color: red;*/
     font-size:8px;
     color: white;
-    /*text-align: center;*/
 }
+
+/*section divider*/
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #234b58; /* var(--bs-border-color);  Dark grey bar background */
+    color: #fffdfd; /* var(--bs-body-color);Grey text colour */
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 100vw; /* Stretches across the full screen width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 15px 0; /* Vertically spaces the bar */
+}
+
+.divider span {
+    width: 100%; /* Centres text horizontally inside the bar */
+}
+
