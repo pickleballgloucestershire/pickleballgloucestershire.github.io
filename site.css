@@ -36,6 +36,7 @@ body, html {
     align-items: center;
 }
 
+
 /* Landing Page Content Box */
 /* 2. DARKER INNER CARD: Darkened this specific container to ensure the white text
            remains perfectly readable against the newly brightened flag behind it. */
@@ -138,3 +139,180 @@ p {
     width: 100%; /* Centres text horizontally inside the bar */
 }
 
+/* Grid system layout for adjacent desktop views */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px; /* Reduced to bring the adjacent boxes closer together */
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* REDUCED SIZE: Max-width brought down to 480px for a cleaner, compact footprint */
+.content-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 480px !important; /* Shrunk from original 650px width size */
+    width: 100% !important;
+    padding: 2.5rem 2rem !important; /* Tighter internal padding for compact sizing */
+}
+
+/* High-Impact Big Date Showcase Callout */
+.date-showcase {
+    margin: 1.2rem 0 0.4rem 0;
+    text-align: center;
+}
+
+    .date-showcase .main-date {
+        font-size: 2rem; /* Adjusted slightly to sit nicely inside the smaller card footprint */
+        font-weight: 900;
+        color: #d4fc34;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.1;
+        display: block;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .date-showcase .venue-sub {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #cbd5e1;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        display: block;
+        margin-top: 5px;
+    }
+
+/* Minimalist Countdown Widget Card Layout */
+.countdown-widget {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 1rem 0 0 0; /* Cleared base margin since button is removed */
+    text-align: center;
+}
+
+.countdown-heading {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+}
+
+.timer-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.slot-block {
+    background: rgba(14, 36, 24, 0.6);
+    border: 1px solid rgba(212, 252, 52, 0.15);
+    border-radius: 12px;
+    padding: 8px 0;
+}
+
+.slot-number {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    line-height: 1.1;
+}
+
+.slot-label {
+    font-size: 0.6rem;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 2px;
+    display: block;
+}
+
+/* Premium Status Flag */
+.status-corner-flag {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    background-color: #ff3333;
+    color: #ffffff;
+    padding: 0.3rem 0.9rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+}
+
+/* ==========================================
+   MOBILE SCROLL FIX (Forces viewport unlocking)
+   ========================================== */
+html, body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.overlay {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: visible !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        padding: 20px 0 !important;
+        height: auto !important;
+    }
+
+    .content-box {
+        height: auto !important;
+    }
+}
+
+/* ==========================================
+   NAVBAR CLEARANCE FIX
+   ========================================== */
+.overlay, .grid-container {
+    /* Adjust 80px if your navbar is taller or shorter */
+    padding-top: 60px !important;
+}
+
+/* Optional tweak for cleaner spacing on small screens */
+@media (max-width: 768px) {
+    .overlay, .grid-container {
+        padding-top: 70px !important;
+    }
+}
+
+/* ==========================================
+   FOOTER CLEARANCE FIX
+   ========================================== */
+.overlay, .grid-container {
+    /* Large bottom padding ensures cards never get cut off by the footer */
+    padding-bottom: 100px !important;
+}
+
+/* For mobile devices where footers often take up more vertical space */
+@media (max-width: 768px) {
+    .overlay, .grid-container {
+        padding-bottom: 60px !important;
+    }
+}
