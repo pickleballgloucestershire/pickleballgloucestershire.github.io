@@ -1,94 +1,213 @@
 ---
 layout: default
+title: Pickleball Gloucestershire
+background_image: ""
 ---
 
+<!-- 
+  The 'position-relative z-index' rule guarantees your elements stack 
+  completely above your background flag layer.
+-->
+<!-- 🟢 MATCHED STEP 1: Top spacing container that keeps layout uniform -->
+<div class="pt-1 position-relative hero-container">
 
-<div class="overlay">
-    <div class="grid-container">
-
-        <!-- CONTENT BOX 1: Your Exact Original Construction Layout -->
-        <div class="content-box">
-            <div>
-                <span class="badge">Under Development</span>
-                <h1>Pickleball Gloucestershire</h1>
-                <p>The ultimate hub for the fastest growing sport in the county is currently under construction. We are building a home for local clubs, courts, tournaments, and players across Gloucestershire.</p>
-            </div>
-            <a href="mailto:glospickle@gmail.com" class="cta-button">Register For Updates</a>
-        </div>
-
-        <!-- CONTENT BOX 2: Festival Box with Matching Badge Style -->
-        <div class="content-box">
-            <span class="status-corner-flag">Details to follow</span>
-
-            <div>
-                <!-- Restored to match your custom .badge class style layout exactly -->
-                <span class="badge">Festival Info</span>
-                <h1>Save The Date</h1>
-                <p>
-                    Get ready for the FIRST <b>Pickleball Gloucestershire</b> Pickleball Festival! We’re cooking up a massive celebration of the game, built around non-stop social play, and incredible community vibes.
-                    No stressful tournament brackets. No official ratings. Just hours of pure, low-pressure fun designed for all skill levels-from daily dinkers to absolute beginners.
-                </p>
-
-                <!-- Massive Visual Date Callout Block -->
-                <div class="date-showcase">
-                    <span class="main-date">Sunday Nov 22nd</span>
-                    <span class="venue-sub">Oxstalls Tennis Centre</span>
-                </div>
-
-                <!-- Countdown Component Block -->
-                <div class="countdown-widget">
-                    <div class="countdown-heading">⏳ Time Remaining Until Launch</div>
-                    <div class="timer-slots">
-                        <div class="slot-block">
-                            <span class="slot-number" id="days">00</span>
-                            <span class="slot-label">Days</span>
-                        </div>
-                        <div class="slot-block">
-                            <span class="slot-number" id="hours">00</span>
-                            <span class="slot-label">Hrs</span>
-                        </div>
-                        <div class="slot-block">
-                            <span class="slot-number" id="minutes">00</span>
-                            <span class="slot-label">Mins</span>
-                        </div>
-                        <div class="slot-block">
-                            <span class="slot-number" id="seconds">00</span>
-                            <span class="slot-label">Secs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <!-- 🟢 MATCHED STEP 2: Identical wrapper block copied from the League page structure -->
+    <div class="container-fluid px-3 px-md-4 py-2 text-center">
+      <p class="fs-5 fs-md-4 text-black fw-bold mt-2 mb-2 mt-md-4 w-75 mx-auto hero-subtext">
+        Pickleball Gloucestershire is the county's friendly hub for the nation's fastest-growing racket sport. 
+      </p>
+      <!-- Green decorative accent divider to keep pages looking uniform -->
+      <div class="mx-auto" style="width: 120px; height: 4px; background-color: #25D366;"></div>
     </div>
+
+    <!-- 3. HERO BOOTSTRAP CAROUSEL -->
+    <div class="mx-auto carousel-wrapper"> 
+      <div id="threeSlideCarousel" class="carousel slide" data-bs-ride="carousel">
+        
+        <!-- Slide Indicators (Bottom Dots) -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#threeSlideCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#threeSlideCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#threeSlideCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          
+          <!-- Slide 1 (Active) -->
+          <div class="carousel-item active">
+            <!-- Dark overlay helper wrapper for legibility -->
+            <div class="w-100 h-100 bg-dark position-absolute opacity-25 overlay-layer"></div>
+            <img src="images/alexsaks1a.jpg" class="d-block w-100 object-fit-cover carousel-img" alt="Join the Action">
+            <div class="carousel-caption px-3 main-caption">
+              <h5 class="display-6 display-md-4 fw-bold mb-2 text-uppercase tracking-wide text-white text-shadow-heavy">
+                Join the Action
+              </h5>
+              <p class="fs-6 fs-md-4 mb-0 caption-text text-shadow-heavy">
+                Discover sessions across Gloucester, Cheltenham, and the whole of Gloucestershire.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="w-100 h-100 bg-dark position-absolute opacity-25 overlay-layer"></div>
+            <img src="images/Gallery/main/gallery7.jpg" class="d-block w-100 object-fit-cover carousel-img" alt="All Ages & Abilities">
+            <div class="carousel-caption px-3 main-caption">
+              <h5 class="display-6 display-md-4 fw-bold mb-2 text-uppercase tracking-wide text-white text-shadow-heavy">
+                All Ages & Abilities
+              </h5>
+              <p class="fs-6 fs-md-4 mb-0 caption-text text-shadow-heavy">
+                Friendly, low-impact games perfect for beginners and seasoned players alike.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="w-100 h-100 bg-dark position-absolute opacity-25 overlay-layer"></div>
+            <img src="images/Gallery/main/gallery10.jpg" class="d-block w-100 object-fit-cover carousel-img" alt="Learn & Socialise">
+            <div class="carousel-caption px-3 main-caption">
+              <h5 class="display-6 display-md-4 fw-bold mb-2 text-uppercase tracking-wide text-white text-shadow-heavy">
+                Learn & Socialise
+              </h5>
+              <p class="fs-6 fs-md-4 mb-0 caption-text text-shadow-heavy">
+                Join our community and improve your skills while making new friends.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Left/Right Arrow Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#threeSlideCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#threeSlideCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        
+      </div>
+    </div>
+
+    </div> <!-- 🟢 EXACT CHANGE 1: Closes .carousel-wrapper -->
+</div> <!-- 🟢 EXACT CHANGE 2: Closes .hero-container -->
+
+
+
+<!-- 🟢 EXACT CHANGE 3: Added 'mt-4' for standard Bootstrap vertical spacing -->
+<div class="club-ticker-container mt-4" id="ticker-box">
+  <div class="club-ticker-label">📌 CLUB NEWS</div>
+  <div class="club-ticker-wrap">
+    <div class="club-ticker-content" id="club-ticker">
+      <!-- FALLBACK TEXT (Shows if feed fails, or if posts are older than 7 days) -->
+      <span class="ticker-item">🏓 Welcome to Pickleball Gloucestershire! Join the fastest-growing sport.</span>
+      <span class="ticker-item">⚡ Master the dink and stay out of the kitchen! Check our posts for court schedules.</span>
+    </div>
+  </div>
 </div>
 
 <script>
-    // Hardcoded target date matching November 22nd
-    const targetDate = new Date("November 22, 2026 09:00:00").getTime();
+  function loadLiveTicker() {
+    const blogDomain = "pickleball-gloucestershire.blogspot.com";
+    const script = document.createElement('script');
+    script.src = "https://pickleball-gloucestershire.blogspot.com/feeds/posts/default?alt=json-in-script&callback=processLiveTicker&max-results=5";
+    
+    script.onerror = function() { 
+      console.log("Blogger feed unreachable. Using fallback text."); 
+      resetStaticLoop();
+    };
+    document.body.appendChild(script);
+  }
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const difference = targetDate - now;
-
-        if (difference < 0) {
-            document.querySelector(".countdown-widget").innerHTML = "<div class='countdown-heading' style='color:#d4fc34; margin:0;'>🎉 The Festival is Live!</div>";
-            return;
-        }
-
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days.toString().padStart(2, '0');
-        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+  function processLiveTicker(json) {
+    // Robust structural sanity checks to prevent 'undefined' crashes
+    if (!json?.feed?.entry || json.feed.entry.length === 0) {
+      resetStaticLoop();
+      return;
     }
+    
+    try {
+      let entries = json.feed.entry;
+      
+      // Target the date of the single newest entry safely
+      
+      let dateString = entries[0]?.published?.$t || entries[0]?.updated?.$t;
+      if (!dateString) {
+        resetStaticLoop();
+        return;
+      }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+      let newestPostDate = new Date(dateString);
+      let currentDate = new Date();
+      let timeDifference = currentDate.getTime() - newestPostDate.getTime();
+      let daysDifference = timeDifference / (1000 * 3600 * 24);
+      
+      // If the latest post is older than 7 days, fallback to the hardcoded loop
+      if (daysDifference > 7) {
+        resetStaticLoop();
+        return;
+      }
+      
+      let tickerHTML = "";
+      for (let i = 0; i < entries.length; i++) {
+        let entry = entries[i];
+        let title = entry?.title?.$t || "Latest Update";
+        
+        // Find alternate browser link item safely
+        let linkObj = entry?.link?.find(l => l.rel === 'alternate');
+        let link = linkObj ? linkObj.href : `https://pickleball-gloucestershire.blogspot.com`;
+        
+        // Handle dates safely
+        let rawDate = entry?.published?.$t;
+        let formattedDate = "";
+        if (rawDate) {
+          let publishedDate = new Date(rawDate);
+          let day = publishedDate.getDate();
+          let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          let month = months[publishedDate.getMonth()];
+          formattedDate = ` <span class="ticker-date">[${day} ${month}]</span>`;
+        }
+        
+    
+        tickerHTML += `<a href="${link}" class="ticker-item" target="_blank" rel="noopener"><img src="images/PBGlos-Logo.webp" alt="PBGlos Logo" class="ticker-logo"> ${title}${formattedDate}</a>`;
+
+        
+      }
+      
+      const tickerContainer = document.getElementById('club-ticker');
+      tickerContainer.innerHTML = tickerHTML + tickerHTML;
+      
+    } catch (error) {
+      console.error("Ticker processing encountered a structural error: ", error);
+      resetStaticLoop();
+    }
+  }
+
+  // FIXED: Explicitly populates the loop with structured fallback items
+  function resetStaticLoop() {
+    const container = document.getElementById('club-ticker');
+    if (!container) return;
+
+    // Define your static fallback messages here
+    const fallbackItems = [
+      { text: "Welcome to Pickleball Gloucestershire!", link: "https://pickleball-gloucestershire.blogspot.com" },
+      { text: "Check back soon for latest tournament news and updates.", link: "https://pickleball-gloucestershire.blogspot.com" }
+    ];
+
+    let fallbackHTML = "";
+    fallbackItems.forEach(item => {
+      fallbackHTML += `<a href="${item.link}" class="ticker-item" target="_blank" rel="noopener"><img src="images/PBGlos-Logo.webp" alt="PBGlos Logo" class="ticker-logo"> ${item.text}</a>`;
+    });
+
+    // Injects and duplicates for seamless continuous scrolling animation
+    container.innerHTML = fallbackHTML + fallbackHTML;
+  } 
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadLiveTicker);
+  } else {
+    loadLiveTicker();
+  }
 </script>
-
-

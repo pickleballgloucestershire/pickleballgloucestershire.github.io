@@ -1,0 +1,183 @@
+- image: "main/gallery1.jpg"
+  alt: "General Club Photos"
+  category: "league"
+  caption: "The only league that matters!"   
+
+- image: "main/gallery2.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "First Ladies Session"    
+
+- image: "main/gallery3.jpg"
+  alt: "General Club Photos"
+  category: "league"
+  caption: "Everyone's a winner"   
+
+- image: "main/gallery4.jpg"
+  alt: "General Club Photos"
+  category: "league"
+  caption: "Game On"    
+
+- image: "main/gallery5.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Follow Through"   
+
+- image: "main/gallery6.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Less talking, More Dinking!"    
+
+- image: "main/gallery7.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "The calm before ...."   
+
+- image: "main/gallery8.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Bliss"       
+
+- image: "main/gallery9.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Hold the Line"   
+
+- image: "main/gallery10.jpg"
+  alt: "General Club Photos"
+  category: "league"
+  caption: "If you can't beat 'em, join 'em"    
+
+- image: "main/gallery11.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Let Battle Commence"   
+
+- image: "main/gallery12.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Eye on the Ball!"    
+
+- image: "main/gallery13.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Spot the ball"   
+
+- image: "main/gallery14.jpg"
+  alt: "General Club Photos"
+  category: "socials"
+  caption: "and the all important Social Side"    
+
+- image: "main/gallery15.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Did we win?"   
+
+- image: "main/gallery16.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Forget about the winning - What time is tea?"   
+
+- image: "main/gallery17.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "The guy on the right is writing down how many unforced errors I've made"    
+
+- image: "main/gallery18.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Is that serve legal?"  
+
+- image: "main/gallery19.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Top Spin Pro" 
+
+- image: "main/gallery20.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Newport medallers 20/9/2026" 
+
+- image: "main/gallery21.jpg"
+  alt: "General Club Photos"
+  category: "main"
+  caption: "Ian and Rob Williams" 
+
+- image: "graded-play/WA2026-09-09-01.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "On the way to the kitchen"
+
+- image: "graded-play/WA2026-09-09-02.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Holding the Line"
+
+- image: "graded-play/WA2026-09-09-03.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Is the ball cracked?"  
+
+- image: "graded-play/WA2026-09-09-04.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Are you sure the ball's not cracked?"  
+
+- image: "graded-play/WA2026-09-09-05.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Paddle Tap"  
+
+- image: "graded-play/WA2026-09-09-06.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "On the move"
+
+- image: "graded-play/WA2026-09-09-07.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Ready for Action"
+
+- image: "graded-play/WA2026-09-09-08.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Bend Zee Knees"  
+
+- image: "graded-play/WA2026-09-09-09.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "No Mans Land/Land of Opportunity!"  
+
+- image: "graded-play/WA2026-09-09-10.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Spot the Ball"   
+
+- image: "graded-play/WA2026-09-09-11.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Yours/Mine!"
+
+- image: "graded-play/WA2026-09-09-12.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Serve and STAY!"
+
+- image: "graded-play/WA2026-09-09-13.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "That match over there looks more interesting"  
+
+- image: "graded-play/WA2026-09-09-14.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "I'm sure my partners there somewhere"  
+
+- image: "graded-play/WA2026-09-09-15.jpeg"
+  alt: "Inaugral Graded Play Wednesday Session"
+  category: "graded-play"
+  caption: "Wait for it, wait for it"    
+
+      
+
+

@@ -1,8 +1,112 @@
 ---
 layout: default
-background:""
+title: Cookie Policy
+background_image: "" 
 ---
 
+<head>
+    <!-- Your standard site links -->
+    <link rel="stylesheet" href="site.css"><!-- Your main stylesheet -->
 
-<div></div>
-<script id="CookieDeclaration" src="https://consent.cookiebot.com/b98fe652-ec1b-47d5-994c-1dd2509fc083/cd.js" type="text/javascript" async></script>
+    <!-- 1. CRITICAL: Link the local CSS file so it displays as a window instead of raw text -->
+    <!--<link rel="stylesheet" href="cookieconsent.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.min.css">
+</head>
+
+<p>
+    You can change or withdraw your consent at any time by clicking our
+    <a href="#" data-cc="show-preferencesModal">Cookie Preference Manager</a>.
+
+</p>
+
+<!-- Place this container inside your cookie policy layout page -->
+<div id="dynamic-cookie-policy-table">
+    <p style="color: #666;">Loading latest automated cookie audit results...</p>
+</div>
+
+<!-- 2. Load the CDN UMD JavaScript file -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.umd.min.js"></script>-->
+
+<!-- ✨ FIX 2: Re-attached the dynamic data rendering loop script block below -->
+<script>
+async function renderPolicyTables() {
+    const container = document.getElementById('dynamic-cookie-policy-table');
+    if (!container) return;
+
+    try {
+        // Direct single target path matching your root public distribution asset
+        const response = await fetch('cookie-database.json');
+        if (!response.ok) throw new Error('Database path mismatch');
+        const cookieDb = await response.json();
+
+        const buildTableHtml = (title, description, items) => {
+            let rowsHtml = '';
+            
+            if (!items || items.length === 0) {
+                rowsHtml = `<tr><td colspan="3" style="text-align:center; padding:24px; color:var(--cc-text-muted); font-style:italic;">No active tracking scripts detected inside this channel layout.</td></tr>`;
+            } else {
+                rowsHtml = items.map(item => `
+                    <tr>
+                        <td><span class="cc-badge-code">${item.name || 'Unknown'}</span></td>
+                        <td style="font-weight: 500;">${item.domain || 'Internal'}</td>
+                        <td style="color: var(--cc-text-muted);">${item.expiry || 'Session'}</td>
+                    </tr>
+                `).join('');
+            }
+
+            return `
+                <div class="cc-policy-section">
+                    <h3 class="cc-policy-header">${title}</h3>
+                    <p class="cc-policy-desc">${description}</p>
+                    <div class="cc-table-wrapper">
+                        <table class="cc-styled-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 35%;">Cookie Identifier</th>
+                                    <th style="width: 40%;">Source Authority</th>
+                                    <th style="width: 25%;">Lifespan Domain</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rowsHtml}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        };
+
+        container.innerHTML = `
+            ${buildTableHtml(
+                '1. Strictly Necessary Cookies', 
+                'These tracking metrics are foundational to managing security variables, state verification parameters, and core platform rendering processes. They cannot be deactivated manually.', 
+                cookieDb.necessary
+            )}
+            ${buildTableHtml(
+                '2. Analytics & Metric Logs', 
+                'We use these entries to evaluate system volume thresholds and user layout engagement metrics across execution paths asynchronously without user profile cross-matching.', 
+                cookieDb.analytics
+            )}
+            ${buildTableHtml(
+                '3. Marketing Integrations', 
+                'These profiles are generated dynamically by modern pixels to log third-party audience reach adjustments and cross-channel funnel tracking data.', 
+                cookieDb.marketing
+            )}
+        `;
+
+    } catch (error) {
+        console.error('❌ Policy layout table rendering engine stopped:', error);
+        container.innerHTML = `
+            <div style="font-family: sans-serif; color: #721c24; background: #f8d7da; border: 1px solid #f5c6cb; padding: 16px; border-radius: 6px; font-size: 0.95rem;">
+                <strong>System Notice:</strong> Our live cookie inventory database registry is currently updating via automatic build hooks. Compliance policies remain active.
+            </div>
+        `;
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderPolicyTables);
+} else {
+    renderPolicyTables();
+}
+</script>

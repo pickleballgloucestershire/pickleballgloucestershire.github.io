@@ -1,0 +1,79 @@
+name: Automated Cookie Scanner Loop
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at midnight
+  workflow_dispatch: # Allows manual button-trigger from GitHub UI
+
+jobs:
+  audit-and-map:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install Playwright & System Binaries
+        run: |
+          npm list playwright || npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run Headless Audit & Mapping Loop
+        run: node scan.js
+
+      - name: Execute Opt-In Lifecycle Verification Test
+        # This will fail the build if rogue pixels fire before user interaction or drop out on acceptance
+        id: opt_in_check
+        run: node verify-banner.js
+
+      - name: Execute Opt-Out Lifecycle Verification Test
+        # This will fail the build if cookies leak into the context environment after a user clicks "Reject All"
+        id: opt_out_check
+        run: node verify-reject-flow.js
+
+      - name: Push Data back to Git
+        # FIX: Adjusted indentation spacing and set to run even if checks flag compliance failures 
+        # so that your generated documentation logs are permanently captured on production repository tracks.
+        if: always()
+        run: |
+          git config --global user.name "CookieScannerBot"
+          git config --global user.email "bot@github.com"
+          
+          # Added tracking parameters to commit both core validation files together
+          git add cookie-database.json link-architecture.json GDPR-compliance-report.md
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-updated active cookie catalog & architecture map [skip ci]"
+            git pull --rebase origin main
+            git push
+            echo "Changes committed and pushed successfully."
+          else
+            echo "No changes found in cookie profiles."
+          fi
+
+      - name: Archive Audited Cookie Database Artifact
+        if: always() # Runs even if the verification scripts fail so you can download file logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: audited-cookie-inventory
+          path: |
+            cookie-database.json
+            link-architecture.json
+          retention-days: 30

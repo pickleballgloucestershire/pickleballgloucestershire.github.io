@@ -1,129 +1,61 @@
-﻿/* Reset and Base Styles */
+/* ==========================================================================
+   1. GLOBAL STYLES & LAYOUT
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #ffffff;
-    overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 85px; /* Matches the exact height of your fixed Bootstrap navbar */
 }
 
-/* Full-screen background with a waving fabric Gloucestershire flag */
-.hero-background {
-    height: 100%;
-    width: 100%;
-    background-image: url('images/glos flag.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* 1. BRIGHTENED OVERLAY: Reduced opacity from 0.8 to 0.35 so the flag pops out vividly */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Landing Page Content Box */
-/* 2. DARKER INNER CARD: Darkened this specific container to ensure the white text
-           remains perfectly readable against the newly brightened flag behind it. */
-.content-box {
+.section {
+    padding: 60px 0;
     text-align: center;
-    padding: 3rem 2.5rem;
-    max-width: 650px;
-    width: 90%;
-    background: rgba(10, 20, 15, 0.88); /* Stronger dark background for text protection */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid #ddd;
 }
 
-/* Under Development Badge */
-.badge {
-    display: inline-block;
-    background-color: #d4fc34; /* Pickleball yellow/green */
-    color: #0e2418;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 0.4rem 1.4rem;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-    letter-spacing: 1.5px;
-    box-shadow: 0 4px 10px rgba(212, 252, 52, 0.3);
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #333;
 }
 
 p {
-    font-size: 1.15rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    color: #f1f5f9;
+    max-width: 600px;
+    margin: 0 auto 20px;
 }
 
-/* Call to Action Button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2.8rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #0e2418;
-    background-color: #d4fc34; /* Pickleball yellow/green */
-    text-decoration: none;
-    border-radius: 30px;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.version {
+    font-size: 8px;
 }
 
-.cta-button:hover {
-    background-color: #e1ff54;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 252, 52, 0.5);
+/* ==========================================================================
+   2. FIXED BACKGROUNDS & DIVIDERS
+   ========================================================================== */
+/* FIX: Changed background-color to transparent on .custom-flag-bg wrapper layers.
+   Prevents previous body rule from painting a solid white background block over graphics. */
+.custom-flag-bg {
+    top: 85px !important;
+    height: calc(100vh - 85px) !important;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size:8px;
-    color: white;
-}
-
-/*section divider*/
+/* Full viewport section divider bar */
 .divider {
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #234b58; /* var(--bs-border-color);  Dark grey bar background */
-    color: #fffdfd; /* var(--bs-body-color);Grey text colour */
+    background-color: #234b58; /* Themes matching dark slate blue */
+    color: #fffdfd; 
     font-weight: bold;
     letter-spacing: 2px;
     width: 100vw; /* Stretches across the full screen width */
@@ -139,180 +71,1333 @@ p {
     width: 100%; /* Centres text horizontally inside the bar */
 }
 
-/* Grid system layout for adjacent desktop views */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px; /* Reduced to bring the adjacent boxes closer together */
-    width: 90%;
-    margin: 0 auto;
-    padding: 40px 0;
+/* ==========================================================================
+   3. NAVIGATION UTILITIES
+   ========================================================================== */
+/* Highlights the link corresponding to the current active Jekyll page */
+.navbar-nav .nav-link.active {
+    color: #234b58 !important;       /* Themes matching dark slate blue */
+    font-weight: bold;               /* Emphasises the current active tab */
+    background-color: #f4f4f4;       /* Adds a clean, light grey contrast block */
+    border-radius: 4px;              
 }
 
-/* REDUCED SIZE: Max-width brought down to 480px for a cleaner, compact footprint */
-.content-box {
+.disabled-wrapper {
+    cursor: not-allowed;      /* Shows the "no" sign on hover */
+}
+
+.disabled-nav {
+    color: #94a3b8;           
+    pointer-events: none;     /* Stops the link itself from being clickable */
+    opacity: 0.6;             
+    text-decoration: none;    
+}
+
+/* ==========================================================================
+   4. HOME HERO & CAROUSEL EXTENSION
+   ========================================================================== */
+.hero-container {
+    z-index: 2;
+}
+
+.hero-subtext {
+    max-width: 1200px;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+}
+
+.carousel-wrapper {
+    max-width: 75%; /* Shrinks layout down to 75% on large screens */
+    transition: max-width 0.3s ease-in-out;
+}
+
+.carousel-item {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+}
+
+.overlay-layer {
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.carousel-img {
+    max-height: 500px;
+}
+
+.main-caption {
+    z-index: 2;
+}
+
+.caption-text {
+    color: #FBF7EA;
+}
+
+#threeSlideCarousel .carousel-caption {
+    top: 1%;       /* Pushes header details higher from the top bounds */
+    bottom: auto;  /* Clears Bootstrap's default bottom layout positioning */
+}
+
+/* Custom Text Shadows */
+.text-shadow {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+}
+
+.text-shadow-heavy {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   5. TABLES
+   ========================================================================== */
+table {
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
-    max-width: 480px !important; /* Shrunk from original 650px width size */
-    width: 100% !important;
-    padding: 2.5rem 2rem !important; /* Tighter internal padding for compact sizing */
+    border-collapse: collapse;
 }
 
-/* High-Impact Big Date Showcase Callout */
-.date-showcase {
-    margin: 1.2rem 0 0.4rem 0;
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
     text-align: center;
 }
 
-    .date-showcase .main-date {
-        font-size: 2rem; /* Adjusted slightly to sit nicely inside the smaller card footprint */
-        font-weight: 900;
-        color: #d4fc34;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        line-height: 1.1;
-        display: block;
-        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    .date-showcase .venue-sub {
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: #cbd5e1;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        display: block;
-        margin-top: 5px;
-    }
-
-/* Minimalist Countdown Widget Card Layout */
-.countdown-widget {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 1rem;
-    margin: 1rem 0 0 0; /* Cleared base margin since button is removed */
-    text-align: center;
+th {
+    background: #333;
+    color: #fff;
 }
 
-.countdown-heading {
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #ffffff;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.8rem;
-    opacity: 0.8;
+td {
+    background: #f4f4f4;
 }
 
-.timer-slots {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+/* ==========================================================================
+   6. LEGACY & MODERN GALLERIES
+   ========================================================================== */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-.slot-block {
-    background: rgba(14, 36, 24, 0.6);
-    border: 1px solid rgba(212, 252, 52, 0.15);
-    border-radius: 12px;
-    padding: 8px 0;
+.gallery-item {
+    position: relative;
+    width: calc(33.333% - 10px);
+    background: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.slot-number {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #ffffff;
-    display: block;
-    line-height: 1.1;
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
 }
 
-.slot-label {
-    font-size: 0.6rem;
-    color: #cbd5e1;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 2px;
-    display: block;
+.gallery-item:hover img {
+    transform: scale(1.1);
 }
 
-/* Premium Status Flag */
-.status-corner-flag {
+.gallery-overlay {
     position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    background-color: #ff3333;
-    color: #ffffff;
-    padding: 0.3rem 0.9rem;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* 🌟 UPDATED: Deep, rich brand-green overlay mask (85% opacity) */
+    background: rgba(18, 102, 49, 0.85); 
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* ==========================================
-   MOBILE SCROLL FIX (Forces viewport unlocking)
-   ========================================== */
-html, body {
-    height: auto !important;
-    min-height: 100% !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
 }
 
-.overlay {
-    position: relative !important;
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: visible !important;
-    display: flex !important;
-    align-items: center !important;
+/* 🌟 ADD ONLY THIS TO THE BOTTOM OF SECTION 6 */
+.gallery-item {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Premium Hover Utilities */
+.gallery-hover-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+}
+
+.gallery-hover-wrapper .transition-img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-hover-wrapper .transition-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-hover-wrapper:hover .transition-img {
+    transform: scale(1.05);
+}
+
+.gallery-hover-wrapper:hover .transition-overlay {
+    opacity: 1 !important;
+}
+
+/* Modern Layout Additions to Section 6 */
+.gallery-hover-wrapper {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. LEGACY & MODERN GALLERIES
+   ========================================================================== */
+.gallery-hover-wrapper { 
+    cursor: pointer; 
+}
+
+.transition-img { 
+    transition: transform 0.4s ease-in-out; 
+}
+
+.transition-overlay { 
+    background: rgba(18, 102, 49, 0.85); /* Club Brand Green */
+    transition: opacity 0.3s ease-in-out; 
+    z-index: 2; 
+}
+
+.gallery-hover-wrapper:hover .transition-overlay { 
+    opacity: 1 !important; 
+}
+
+.gallery-hover-wrapper:hover .transition-img { 
+    transform: scale(1.06); 
+}
+
+.gallery-item {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lightbox Max-Height Guard: stops vertical pop-up spillages on small laptop views */
+#lightbox-img {
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS & MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .content-wrapper {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Expanded carousel real estate for tablet viewports */
+    .carousel-wrapper {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
-    .grid-container {
-        padding: 20px 0 !important;
-        height: auto !important;
+    /* Full-screen width extension on mobile devices */
+    .carousel-wrapper {
+        max-width: 100%;
+    }
+    .gallery-item, .bio {
+        width: calc(50% - 10px);
+    }
+    
+    /* General tables are dynamic to preserve column layouts */
+    table {
+        width: 100%;
     }
 
-    .content-box {
-        height: auto !important;
+    /* Widens the compressed right column to fit button text on one line and centers everything */
+    .col-link, 
+    th.text-center,
+    td.text-center {
+        min-width: 110px !important;     /* Pushes table border out so text stops wrapping messy */
+        text-align: center !important;   /* Hard-overrides any remaining alignment issues */
+        padding: 8px 4px !important;
+    }
+    
+    .partner-btn {
+        width: 100% !important;
+        max-width: 100px;
+        display: inline-block !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Only wraps long links/text inside specifically marked items */
+    .mobile-text-break,
+    .mobile-text-break a {
+        word-break: break-all !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* Force location tabs to stay inline and allow horizontal scrolling touch gestures */
+    .nav-tabs, 
+    [role="tablist"] {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch; /* Smooth inertia swiping on iOS devices */
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    /* Keep the individual tab selectors clean with locked boundary widths */
+    .nav-tabs .nav-item,
+    .nav-tabs .nav-link {
+      flex: 0 0 auto !important; /* Prevents text elements from squishing uncomfortably */
+      display: inline-block !important;
+    }
+
+    /* CALENDAR GREEN SPACE FIX: Forces container card elements to expand full-width */
+    .col-12,
+    .col-lg-8,
+    .content-wrapper,
+    .section,
+    div:has(#adaptive-calendar-root) {
+      padding-left: 0px !important;   /* Dropped to 0 to capture absolute maximum green screen space */
+      padding-right: 0px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    #adaptive-calendar-root, .fc {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+    }
+
+    /* ⚡ FIXED LIVE TICKER ENGINE FOR MOBILE: Force complete layout engine restructuring */
+    .club-ticker-wrap {
+      overflow: hidden !important;
+      width: 100% !important;
+    }
+
+    .club-ticker-content {
+      display: flex !important;
+      flex-direction: row !important;
+      white-space: nowrap !important;
+      width: max-content !important;    /* Forces text strings to expand outwards into a long fluid line */
+      /* Completely overrides desktop transitions with a hardware-accelerated 10s mobile cycle */
+      animation: mobileTickerLoop 30s linear infinite !important; 
+      will-change: transform !important;
+    }
+
+    .ticker-item {
+      display: inline-flex !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+      padding-right: 60px !important;   /* Tightens space gaps between scrolling alerts on narrow displays */
+    }
+
+    /* GALLERY TEXT ENGINE REVEAL: Strips away opacity locks on ALL structural image nodes */
+    .gallery-item div,
+    .gallery-item .overlay,
+    .gallery-item .hover-text,
+    .gallery-item .text-container,
+    .gallery-caption,
+    .gallery-item [class*="overlay"],
+    .gallery-item [class*="hover"],
+    .gallery-item .overlay-content,
+    .gallery-item .hover-text-inner {
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+      transform: none !important;      /* Halts desktop translation layer movements */
+      -webkit-transform: none !important;
+      transition: none !important;
+    }
+
+    /* Forces hidden inner text blocks to render cleanly in solid white text */
+    .gallery-item h3,
+    .gallery-item p,
+    .gallery-item span,
+    .gallery-item a {
+      opacity: 1 !important;
+      visibility: visible !important;
+      color: #ffffff !important;
+      display: inline-block !important;
+    }
+
+    /* Anchors the descriptive gradient band layout to the lower third boundary box */
+    .gallery-item .overlay,
+    .gallery-item [class*="overlay"],
+    .gallery-item [class*="hover"] {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: linear-gradient(transparent, rgba(18, 102, 49, 0.95)) !important; 
+      padding: 15px 10px !important;
+      box-sizing: border-box !important;
     }
 }
 
-/* ==========================================
-   NAVBAR CLEARANCE FIX
-   ========================================== */
-.overlay, .grid-container {
-    /* Adjust 80px if your navbar is taller or shorter */
-    padding-top: 60px !important;
-}
-
-/* Optional tweak for cleaner spacing on small screens */
-@media (max-width: 768px) {
-    .overlay, .grid-container {
-        padding-top: 70px !important;
+@media (max-width: 480px) {
+    .section {
+        padding: 30px 15px;
     }
-}
-
-/* ==========================================
-   FOOTER CLEARANCE FIX
-   ========================================== */
-.overlay, .grid-container {
-    /* Large bottom padding ensures cards never get cut off by the footer */
-    padding-bottom: 100px !important;
-}
-
-/* For mobile devices where footers often take up more vertical space */
-@media (max-width: 768px) {
-    .overlay, .grid-container {
-        padding-bottom: 60px !important;
+    .gallery-item, .bio {
+        width: 100%;
     }
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
 }
+
+/* 🚀 PURE GPU TRANSITION ENGINE: Bypasses desktop layout property locks completely */
+@keyframes mobileTickerLoop {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+
+
+
+
+/* ==========================================================================
+   8. CLUB INFORMATION & TEAM LAYOUT
+   ========================================================================== */
+.info-team-section {
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Brand Theme Accent Elements */
+.accent-blue {
+  color: #0072BB;
+}
+
+.accent-green {
+  color: #69C071;
+}
+
+.accent-yellow {
+  color: #E6C619;
+}
+
+.blue-heading-border {
+  border-color: #0072BB !important;
+}
+
+/* Left-Side Cards configuration */
+.info-card {
+  background-color: #FBF7EA;
+  border-color: #69C071 !important;
+}
+
+/* Right-Side Bios layout */
+.team-card {
+  border-color: #0072BB !important;
+}
+
+.team-avatar {
+  border-color: #69C071 !important;
+}
+
+.bio-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+
+/* ==========================================================================
+   9. SCHEDULE & SESSION STYLES
+   ========================================================================== */
+
+.schedule-section {
+  position: relative;
+}
+
+/* Fix mobile height scroll conflicts for the calendar */
+@media (max-width: 991.98px) {
+  .calendar-container {
+    min-height: 600px !important; 
+    overflow-y: auto !important;   
+    -webkit-overflow-scrolling: touch; 
+  }
+}
+
+/* Forces internal frame widgets to conform to 100% screen width */
+.calendar-container iframe, 
+.calendar-container div[class^="elfsight-app-"] {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Header Utilities */
+.schedule-header-border {
+  border-color: #4a77d4 !important;
+}
+
+.schedule-main-title {
+  color: #4a77d4;
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+}
+
+.sub-text-sm {
+  font-size: 0.85rem;
+}
+
+.logo-icon-main {
+  height: 1.8rem;
+  width: auto;
+}
+
+.logo-icon-sm {
+  height: 1.2rem;
+  width: auto;
+}
+
+/* Card Foundations */
+.session-card {
+  border-radius: 12px;
+}
+
+.venue-box {
+  background-color: #ffffff;
+  font-size: 0.85rem;
+}
+
+.info-link {
+  cursor: help;
+  font-size: 0.75rem;
+}
+
+.disabled-booking-link {
+  pointer-events: none;
+  cursor: help;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+/* Color Theming: Wednesday Blue Track */
+.session-card-blue {
+  border-color: #4a77d4 !important;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+}
+
+.badge-blue {
+  font-size: 0.7rem;
+  background-color: #4a77d4;
+  font-weight: bold;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.title-blue {
+  color: #1e3a75;
+  font-size: 1.25rem;
+}
+
+.time-text-blue {
+  color: #4a77d4;
+  font-size: 1.15rem;
+}
+
+.venue-box-blue {
+  border: 1px dashed rgba(74, 119, 212, 0.25);
+}
+
+.info-link-blue {
+  color: #4a77d4;
+}
+
+/* Color Theming: Friday Lime Track */
+.session-card-lime {
+  border-color: #e6ee1a !important;
+  background: linear-gradient(180deg, #fffef5 0%, #ffffff 100%);
+}
+
+.badge-lime {
+  font-size: 0.7rem;
+  background-color: #e6ee1a;
+  font-weight: 800;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.title-dark-lime {
+  color: #333900;
+  font-size: 1.25rem;
+}
+
+.time-text-olive {
+  color: #8c9300;
+  font-size: 1.15rem;
+}
+
+.venue-box-lime {
+  border: 1px dashed rgba(230, 238, 26, 0.35);
+}
+
+.link-olive {
+  color: #8c9300;
+}
+
+.info-link-olive {
+  color: #8c9300;
+}
+
+/* ==========================================================================
+   10. FULLCALENDAR CORE SYSTEM OVERRIDES
+   ========================================================================== */
+.fc {
+  --fc-border-color: rgba(0, 0, 0, 0.06);
+  --fc-daygrid-event-dot-width: 0px; /* Hide default event dots */
+  font-family: 'Inter', sans-serif;
+}
+
+.calendar-container {
+  background-color: #98e4a7 !important; /* Exact matching light mint green backdrop */
+}
+
+/* Days of the week header text styling */
+.fc .fc-col-header-cell-cushion {
+  color: #718096 !important;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+
+/* Day Numbers text styling */
+.fc .fc-daygrid-day-number {
+  color: #718096 !important;
+  font-weight: 500;
+  padding: 8px !important;
+  font-size: 14px;
+}
+
+/* Current date highlight circle wrapper - Fixed layout isolation */
+.fc .fc-day-today {
+  position: relative;
+}
+.fc .fc-day-today .fc-daygrid-day-number {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 4px auto 4px 4px !important; /* Keeps it naturally top-left aligned without layout drift */
+  padding: 0 !important;
+}
+
+/* Customizing the toolbar header components */
+.fc .fc-toolbar {
+  margin-bottom: 20px !important;
+  align-items: center;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #2d3748;
+}
+
+/* Custom button aesthetics matching flat browser look */
+.fc .fc-button {
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #2d3748 !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 14px !important;
+  text-transform: capitalize !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+.fc .fc-button:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+
+/* ==========================================================================
+   11. TEXT-WRAPPING EVENT PILL DESIGN (CONSOLIDATED)
+   ========================================================================== */
+
+/* Base Pill Layout Block Configuration */
+.fc .fc-daygrid-body .fc-daygrid-event,
+.fc-daygrid-event,
+.fc-daygrid-block-event {
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;       
+  padding: 5px 10px !important;
+  margin: 3px 2px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  /* Core layout rules to completely stop layout string clipping */
+  display: block !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+/* Remove default dots */
+.fc-daygrid-event-dot, 
+.fc-event-dot {
+  display: none !important;
+}
+
+/* Structural Text Elements */
+.fc-custom-pill-inner, 
+.fc-daygrid-event-body, 
+.fc-event-main {
+  display: block !important;
+  width: 100% !important;
+  white-space: normal !important;
+}
+
+.fc-custom-pill-title {
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-weight: 1.3 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+.fc-custom-pill-time {
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  opacity: 0.9;
+  margin-bottom: 2px !important;
+  line-height: 1.1 !important;
+}
+
+
+/* ==========================================================================
+   11A   HIGH-SPECIFICITY CLASS INJECTIONS OVERRIDING PURPLE GLOBAL VARIATIONS
+   ========================================================================== */
+
+/* Base Pill Layout Block Configuration */
+.fc .fc-daygrid-body .fc-daygrid-event,
+.fc-daygrid-event,
+.fc-daygrid-block-event {
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;       
+  padding: 5px 10px !important;
+  margin: 3px 2px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  /* Core layout rules to completely stop layout string clipping */
+  display: block !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+/* Remove default dots */
+.fc-daygrid-event-dot, 
+.fc-event-dot {
+  display: none !important;
+}
+
+/* Structural Text Elements */
+.fc-custom-pill-inner, 
+.fc-daygrid-event-body, 
+.fc-event-main {
+  display: block !important;
+  width: 100% !important;
+  white-space: normal !important;
+}
+
+.fc-custom-pill-title {
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+.fc-custom-pill-time {
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  opacity: 0.9;
+  margin-bottom: 2px !important;
+  line-height: 1.1 !important;
+}
+
+/* ==========================================================================
+   11B HIGH-SPECIFICITY CLASS INJECTIONS (OVERGROWN THEME OVERRIDES)
+   ========================================================================== */
+
+/* Blue Track: Wednesday Graded Play (Matches Club Mid-Blue logo color) */
+.fc-daygrid-event.pbg-pill-blue,
+.fc-daygrid-block-event.pbg-pill-blue,
+.pbg-pill-blue {
+  background-color: #4E89DB !important;
+  --fc-event-bg-color: #4E89DB !important;
+  border-color: #1e4b85 !important;
+}
+.pbg-pill-blue .fc-custom-pill-title,
+.pbg-pill-blue .fc-custom-pill-time {
+  color: #ffffff !important;
+}
+
+/* Lime/Yellow Track: Friday Night Lights / Social Play (Matches Club Yellow ball) */
+.fc-daygrid-event.pbg-pill-lime,
+.fc-daygrid-block-event.pbg-pill-lime,
+.pbg-pill-lime {
+  background-color: #F9FE04 !important;
+  --fc-event-bg-color: #F9FE04 !important;
+  border-color: #b5ba02 !important;
+}
+.pbg-pill-lime .fc-custom-pill-title,
+.pbg-pill-lime .fc-custom-pill-time {
+  color: #000000 !important; /* Premium rich black text for high readability overlay */
+}
+
+/* League Track: Competitive Club Matches (Premium Midnight Dark Blue Variant) /
+.fc-daygrid-event.pbg-pill-league,
+.fc-daygrid-block-event.pbg-pill-league,
+.pbg-pill-league {
+  background-color: #0f172a !important; 
+  --fc-event-bg-color: #0f172a !important;
+  border-color: #020617 !important;
+}
+.pbg-pill-league .fc-custom-pill-title,
+.pbg-pill-league .fc-custom-pill-time {
+  color: #ffffff !important;
+}
+
+/* Alternative League Track (Uncomment if you want to fall back to the original Apple Green) */
+.fc-daygrid-event.pbg-pill-league,
+.fc-daygrid-block-event.pbg-pill-league,
+.pbg-pill-league {
+  background-color: #A2D786 !important;
+  --fc-event-bg-color: #A2D786 !important;
+  border-color: #5c8f42 !important;
+}
+.pbg-pill-league .fc-custom-pill-title,
+.pbg-pill-league .fc-custom-pill-time {
+  color: #12331c !important; 
+}
+*/
+
+/* Festival Track: Special Tournaments & Festivals (Vibrant Festival Purple) */
+.fc-daygrid-event.pbg-pill-festival,
+.fc-daygrid-block-event.pbg-pill-festival,
+.pbg-pill-festival {
+  background-color: #7c3aed !important; 
+  --fc-event-bg-color: #7c3aed !important;
+  border-color: #5b21b6 !important;
+}
+.pbg-pill-festival .fc-custom-pill-title,
+.pbg-pill-festival .fc-custom-pill-time {
+  color: #ffffff !important;
+}
+
+/* Grey Track: Booking Reminders & System Slots */
+.fc-daygrid-event.pbg-pill-grey,
+.fc-daygrid-block-event.pbg-pill-grey,
+.pbg-pill-grey {
+  background-color: #f1f3f5 !important;
+  --fc-event-bg-color: #f1f3f5 !important;
+  border-color: #ced4da !important;
+}
+.pbg-pill-grey .fc-custom-pill-title {
+  color: #495057 !important;
+}
+.pbg-pill-grey .fc-custom-pill-time {
+  color: #6c757d !important;
+}
+
+/* Fallback Blueprint Track (Caches all untagged general events cleanly - Slate Gray) */
+.fc-daygrid-event.pbg-pill-default,
+.fc-daygrid-block-event.pbg-pill-default,
+.pbg-pill-default {
+  background-color: #64748b !important; 
+  --fc-event-bg-color: #64748b !important;
+  border-color: #475569 !important;
+}
+.pbg-pill-default .fc-custom-pill-title,
+.pbg-pill-default .fc-custom-pill-time {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   11C. FULLCALENDAR INTERACTIVE MODAL COMPONENT
+   ========================================================================== */
+
+/* Pointer update to show events are clickable */
+.fc-daygrid-event {
+  cursor: pointer !important;
+}
+
+/* Hidden Overlay Container */
+.fc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Active Class Show State */
+.fc-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content Card Box */
+.fc-modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header Design matching Flat System overrides */
+.fc-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #f8fafc;
+}
+
+.fc-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fc-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #64748b;
+  line-height: 1;
+  padding: 0;
+}
+.fc-modal-close:hover {
+  color: #0f172a;
+}
+
+/* Body Copy Setup */
+.fc-modal-body {
+  padding: 20px;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.modal-time-row {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   12. PARTNER CLASSES TABLE & UTILITY OVERRIDES
+   ========================================================================== */
+.partner-container {
+  padding: 1.25rem; /* Replaces p-3.5 with semantic spacing */
+  background-color: #faf9fb !important; 
+  border: 1px solid #eae7ec !important;
+}
+
+.partner-title {
+  color: #7b6d7d; 
+  font-size: 1rem;
+}
+
+.partner-desc {
+  font-size: 0.8rem;
+}
+
+/* Table Column Widths & Typography */
+.partner-table {
+  font-size: 0.8rem;
+}
+
+.partner-header-row {
+  border-bottom: 1px solid #eae7ec;
+}
+
+.col-schedule { width: 20%; }
+.col-class { width: 25%; }
+.col-location { width: 35%; }
+.col-link { width: 20%; }
+
+.time-subtext {
+  font-size: 0.75rem;
+}
+
+.track-badge {
+  font-size: 0.65rem;
+  background-color: #8c828e;
+}
+
+/* Row Borders & Merged Layouts */
+.partner-dashed-row {
+  border-bottom: 1px dashed #f0edf2;
+}
+
+.partner-cell-merge {
+  border-bottom: 1px dashed #f0edf2;
+}
+
+.partner-btn {
+  font-size: 0.7rem; 
+  opacity: 0.8;
+  padding: 0.2rem 0.5rem; /* Replaces py-0.5 px-2 custom tokens safely */
+}
+
+.coming-soon-text {
+  font-size: 0.7rem; 
+  opacity: 0.8; 
+  font-style: italic;
+}
+
+/* ==========================================================================
+   13. GLOBAL TEXT WEIGHT & ANIMATION UTILITIES
+   ========================================================================== */
+.fw-black { font-weight: 900; }
+.fw-extrabold { font-weight: 800; }
+.tracking-wide { letter-spacing: 0.05em; }
+.tracking-wider { letter-spacing: 0.1em; }
+
+@keyframes flash {
+  0%, 100% { background-color: #dc3545; }
+  50% { background-color: #b91c1c; }
+}
+
+.animate-flash {
+  animation: flash 1.5s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   14. CONTACT PAGE, INTERACTIVE MAPS & TABS
+   ========================================================================== */
+/* Fixes Bootstrap tabs using flexbox utilities to hide correctly when inactive */
+.tab-pane.d-flex:not(.active) {
+  display: none !important;
+}
+
+/* Custom Table Variables */
+.contact-table-override {
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.04);
+}
+
+.section-table-header {
+  font-size: 0.9rem;
+}
+
+.col-half {
+  width: 50%;
+}
+
+/* Map Containers & Viewport Scaling */
+.responsive-map-body {
+  height: 220px; /* Mobile layout default */
+}
+
+.map-iframe-absolute {
+  border: 0; 
+  position: absolute; 
+  top: 0; 
+  left: 0;
+}
+
+/* Navigation Tab Typography and State Coloring */
+.nav-tabs .nav-link {
+  color: #212529 !important; /* Forces dark slate color for inactive states */
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6 !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #212529 !important;
+  color: #ffffff !important; /* Clean contrasting text on active tabs */
+  border-color: #212529 !important;
+}
+
+/* Desktop Media Query Enhancements */
+@media (min-width: 992px) {
+  .responsive-map-body {
+    height: 100%; 
+    min-height: 320px; /* Aligns map heights evenly with left table margins */
+  }
+}
+<style>
+  #clubFAQAccordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://w3.org' viewBox='0 0 16 16' fill='%237BC143'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  }
+  #clubFAQAccordion .accordion-button:focus {
+    box-shadow: none !important;
+  }
+</style>
+/* ==========================================================================
+   15. NEWS & UPDATES (SOCIAL FEEDS & BLOG IFRAMES)
+   ========================================================================== */
+.blog-frame-card {
+  background-color: #ffffff;
+}
+
+.blog-iframe-fluid {
+  border: none; 
+  display: block;
+  height: 500px; /* Highly optimized height baseline for mobile viewports */
+  transition: height 0.3s ease-in-out;
+}
+
+/* Desktop Media Query Enhancements */
+@media (min-width: 992px) {
+  .blog-iframe-fluid {
+    height: 700px; /* Extended vertical real-estate to perfectly match social grids */
+  }
+}
+
+/* ==========================================================================
+   16. PICKLEBALL RESOURCES (VIDEO EMBEDS & EXTERNAL LISTINGS)
+   ========================================================================== */
+.resource-header-border {
+  border-color: var(--bs-border-color) !important;
+}
+
+/* Ensure absolute fallback scaling for responsive media embeds */
+.ratio iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   17. POLICY PAGES)
+   ========================================================================== */
+   /* --- YOUR EXISTING STYLES --- */
+:root {
+  /* Your site's existing design variables might be here... */
+  --main-brand-color: #007bff;
+  
+  /* 🍪 Add the Cookie Consent structural variables right here */
+  --cc-primary: #1a1a1a;
+  --cc-text-muted: #595959;
+  --cc-bg-light: #f8f9fa;
+  --cc-border: #e4e7eb;
+  --cc-radius: 8px;
+  --cc-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- PASTE THE REST OF THE COMPONENT STYLES BELOW --- */
+.cc-policy-section {
+  font-family: var(--cc-font);
+  margin-bottom: 2.5rem;
+}
+
+.cc-policy-header {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--cc-primary);
+}
+
+.cc-policy-desc {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--cc-text-muted);
+}
+
+.cc-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--cc-border);
+  border-radius: var(--cc-radius);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.cc-styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.cc-styled-table th {
+  background: var(--cc-bg-light);
+  color: var(--cc-primary);
+  font-weight: 600;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--cc-border);
+}
+
+.cc-styled-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--cc-border);
+  color: #333333;
+  vertical-align: middle;
+}
+
+.cc-styled-table tbody tr:hover td {
+  background-color: rgba(248, 249, 250, 0.75);
+  transition: background-color 0.15s ease;
+}
+
+.cc-styled-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cc-badge-code {
+  background: var(--cc-bg-light);
+  border: 1px solid var(--cc-border);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #d63384;
+}
+/* ==========================================================================
+   18. BREAKING NEWS TICKER
+   ========================================================================== */
+
+
+/* ==========================================================================
+   19. BRANDED CLUB NEWS TICKER
+   ========================================================================== */
+.club-ticker-container {
+    display: flex;
+    align-items: center;
+    background: #234b58; /* UPDATED: Dark Slate Blue from your navbar/divider theme */
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    height: 40px;
+    border-bottom: 2px solid #126631; /* ADDED: Subtle Club Green underline anchor */
+}
+
+.club-ticker-label {
+    background: #E5F91e; /* UPDATED: Bright Pickleball Yellow from the logo's ball */
+    color: #234b58;      /* UPDATED: Dark Slate Blue text for high-contrast legibility */
+    padding: 0 15px;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    white-space: nowrap;
+    box-shadow: 3px 0 5px rgba(0,0,0,0.3);
+}
+
+.club-ticker-wrap {
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+}
+
+.club-ticker-content {
+    display: flex;
+    white-space: nowrap;
+    animation: tickerLoop 25s linear infinite;
+
+    /* ADD ONLY THESE THREE LINES BELOW: */
+    will-change: transform;            /* Tells mobile to prepare the GPU */
+    backface-visibility: hidden;       /* Eliminates micro-stuttering on iOS */
+    -webkit-backface-visibility: hidden; 
+}
+
+/* MERGED: Combined both .ticker-item definitions into one clean block */
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding-right: 100px;
+    gap: 8px; /* Adds space between the logo image and the text */
+}
+
+.ticker-logo {
+    height: 20px;      /* Restricts the height to match your text size */
+    width: auto;       /* Keeps the original aspect ratio of your logo */
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.ticker-date {
+    font-weight: normal;
+    font-size: 0.9em;
+    opacity: 0.85;
+    margin-left: 5px;
+}
+
+.ticker-item:hover {
+    text-decoration: underline !important;
+    color: #E5F91e !important; /* ADDED: Turns yellow on hover for interactive feedback */
+}
+
+.club-ticker-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes tickerLoop {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
