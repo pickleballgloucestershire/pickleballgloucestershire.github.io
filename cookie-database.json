@@ -3,13 +3,13 @@
         {
             "name": "VISITOR_PRIVACY_METADATA",
             "domain": ".youtube.com",
-            "expiry": "Sat, 01 May 2027 04:26:15 GMT",
+            "expiry": "Sat, 08 May 2027 04:40:21 GMT",
             "description": "YouTube compliance tracking state used to store user privacy choices regarding embedded video playback."
         },
         {
             "name": "__Secure-ROLLOUT_TOKEN",
             "domain": ".youtube.com",
-            "expiry": "Sat, 01 May 2027 04:26:18 GMT",
+            "expiry": "Sat, 08 May 2027 04:40:20 GMT",
             "description": "Secure tracking token deployed by YouTube to optimize infrastructure rollouts on embedded players."
         }
     ],
@@ -23,7 +23,7 @@
         {
             "name": "VISITOR_INFO1_LIVE",
             "domain": ".youtube.com",
-            "expiry": "Sat, 01 May 2027 04:26:15 GMT",
+            "expiry": "Sat, 08 May 2027 04:40:21 GMT",
             "description": "YouTube bandwidth metrics tracker used to measure stream quality across embedded frames."
         }
     ],
@@ -31,7 +31,7 @@
         {
             "name": "__Secure-YNID",
             "domain": ".youtube.com",
-            "expiry": "Sat, 01 May 2027 04:26:15 GMT",
+            "expiry": "Sat, 08 May 2027 04:40:18 GMT",
             "description": "Secure security and profile preference handler managed by embedded YouTube integrations."
         }
     ],
@@ -39,7 +39,7 @@
         {
             "name": "NID",
             "domain": ".google.com",
-            "expiry": "Tue, 04 May 2027 04:26:25 GMT",
+            "expiry": "Tue, 11 May 2027 04:40:31 GMT",
             "description": "Google user profiling cookie utilized to customize advertisement delivery across integrated web structures."
         }
     ]
